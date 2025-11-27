@@ -265,8 +265,8 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- CTA Section（生き方の選択後） -->
+    <section class="cta-section" id="ctaAfterLifestyle">
         <div class="container">
             <div class="cta-box">
                 <p class="cta-box-text">あなたの理想の暮らし、<br>今すぐ相談してみませんか？</p>
@@ -771,9 +771,89 @@
 
     <!-- 固定CTAボタン -->
     <div class="fixed-cta" id="fixedCta">
-        <a href="#contact" class="fixed-cta-button">
+        <button type="button" class="fixed-cta-button" id="openQuizBtn">
             <span class="fixed-cta-text">費用例を見る</span>
-        </a>
+        </button>
+    </div>
+
+    <!-- クイズモーダル -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="quiz-modal-overlay" id="quizOverlay"></div>
+        <div class="quiz-modal-content">
+            <button type="button" class="quiz-close" id="quizClose">&times;</button>
+
+            <!-- 質問1: 性別 -->
+            <div class="quiz-step" data-step="1">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" style="width: 25%;"></div>
+                </div>
+                <p class="quiz-step-number">質問 1/4</p>
+                <h3 class="quiz-question">ご性別を教えてください</h3>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-value="male">男性</button>
+                    <button type="button" class="quiz-option" data-value="female">女性</button>
+                </div>
+            </div>
+
+            <!-- 質問2: 年齢 -->
+            <div class="quiz-step" data-step="2" style="display: none;">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" style="width: 50%;"></div>
+                </div>
+                <p class="quiz-step-number">質問 2/4</p>
+                <h3 class="quiz-question">ご年齢を教えてください</h3>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-value="18-29">18歳〜29歳</button>
+                    <button type="button" class="quiz-option" data-value="30-39">30歳〜39歳</button>
+                    <button type="button" class="quiz-option" data-value="40-59">40歳〜59歳</button>
+                    <button type="button" class="quiz-option" data-value="60+">60歳〜</button>
+                </div>
+                <button type="button" class="quiz-back" data-back="1">← 前の質問に戻る</button>
+            </div>
+
+            <!-- 質問3: 間取り -->
+            <div class="quiz-step" data-step="3" style="display: none;">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" style="width: 75%;"></div>
+                </div>
+                <p class="quiz-step-number">質問 3/4</p>
+                <h3 class="quiz-question">ご希望の間取りを教えてください</h3>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-value="1">1R・1K・1DK・1LDK</button>
+                    <button type="button" class="quiz-option" data-value="2">2K・2DK・2LDK</button>
+                    <button type="button" class="quiz-option" data-value="3">3K・3DK・3LDK</button>
+                    <button type="button" class="quiz-option" data-value="4+">4K・4DK・4LDK以上</button>
+                </div>
+                <button type="button" class="quiz-back" data-back="2">← 前の質問に戻る</button>
+            </div>
+
+            <!-- 質問4: 費用 -->
+            <div class="quiz-step" data-step="4" style="display: none;">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" style="width: 100%;"></div>
+                </div>
+                <p class="quiz-step-number">質問 4/4</p>
+                <h3 class="quiz-question">ご予算を教えてください</h3>
+                <div class="quiz-options quiz-options-budget">
+                    <button type="button" class="quiz-option" data-value="0-999">〜999万円</button>
+                    <button type="button" class="quiz-option" data-value="1000-1999">1,000万円〜1,999万円</button>
+                    <button type="button" class="quiz-option" data-value="2000-2999">2,000万円〜2,999万円</button>
+                    <button type="button" class="quiz-option" data-value="3000-3999">3,000万円〜3,999万円</button>
+                    <button type="button" class="quiz-option" data-value="4000+">4,000万円〜</button>
+                </div>
+                <button type="button" class="quiz-back" data-back="3">← 前の質問に戻る</button>
+                <button type="button" class="quiz-submit" id="quizSubmit" style="display: none;">結果を見る</button>
+            </div>
+
+            <!-- 結果表示 -->
+            <div class="quiz-result" id="quizResult" style="display: none;">
+                <h3 class="quiz-result-title">あなたにおすすめの物件</h3>
+                <div class="quiz-result-cards" id="quizResultCards">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+                <a href="#contact" class="quiz-contact-btn" id="quizContactBtn">さらに詳しく話を聞く</a>
+            </div>
+        </div>
     </div>
 
     <script src="js/script.js"></script>
