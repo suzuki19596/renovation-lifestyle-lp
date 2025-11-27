@@ -1,0 +1,2202 @@
+/* ==============================================
+   リセット & 基本設定
+============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-white: #FFFFFF;
+    --color-green: #A8B5A0;
+    --color-pink: #E8D5C4;
+    --color-dark: #3A3A3A;
+    --color-light-gray: #F5F5F5;
+    --color-medium-gray: #E0E0E0;
+
+    --font-sans: 'Noto Sans JP', sans-serif;
+    --font-serif: 'Noto Serif JP', serif;
+
+    --spacing-xs: 1rem;
+    --spacing-sm: 2rem;
+    --spacing-md: 4rem;
+    --spacing-lg: 6rem;
+    --spacing-xl: 3rem;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-dark);
+    line-height: 1.8;
+    background-color: var(--color-white);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.sp-only {
+    display: none;
+}
+
+/* ==============================================
+   共通コンポーネント
+============================================== */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 1.5rem;
+    text-shadow:
+        2px 2px 0 rgba(255, 255, 255, 0.8),
+        -2px -2px 0 rgba(255, 255, 255, 0.8),
+        2px -2px 0 rgba(255, 255, 255, 0.8),
+        -2px 2px 0 rgba(255, 255, 255, 0.8);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-green), var(--color-pink));
+    animation: lineExpand 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes lineExpand {
+    to {
+        width: 80px;
+    }
+}
+
+.section-lead {
+    font-size: 1.125rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    line-height: 2;
+    font-weight: 300;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    padding: 1.25rem 3rem;
+    border-radius: 50px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(168, 181, 160, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 181, 160, 0.5);
+    opacity: 1;
+}
+
+/* CTAボックス */
+.cta-box {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(168, 181, 160, 0.1) 0%, rgba(232, 213, 196, 0.1) 100%);
+    border-radius: 15px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-box-text {
+    font-size: 1.375rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--color-dark);
+}
+
+.cta-badge {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-green);
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.cta-note {
+    font-size: 0.875rem;
+    color: var(--color-dark);
+    margin-top: 1rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* Hero section CTA box - transparent background for dark hero image */
+.hero-cta-box {
+    background: transparent;
+    padding: 2rem 0 0;
+    margin-top: 2rem;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 4rem 0;
+    position: relative;
+    background-image: url('../images/CTAbackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(168, 181, 160, 0.3) 0%, rgba(232, 213, 196, 0.3) 100%);
+    z-index: 1;
+}
+
+.cta-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section .cta-box {
+    margin-top: 0;
+    background: transparent;
+    backdrop-filter: none;
+}
+
+.cta-section .cta-box-text {
+    color: var(--color-dark);
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+}
+
+.cta-section .cta-badge {
+    color: var(--color-dark);
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+.cta-section .cta-note {
+    color: var(--color-dark);
+    text-shadow: 0 1px 6px rgba(255, 255, 255, 0.5);
+    opacity: 0.9;
+}
+
+.cta-section .cta-button {
+    background-color: var(--color-white);
+    color: var(--color-green);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-section .cta-button:hover {
+    background-color: var(--color-green);
+    color: var(--color-white);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ==============================================
+   ヘッダーナビゲーション
+============================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.header-logo a {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.header-logo a img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.header-logo a:hover {
+    opacity: 0.8;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-menu li a {
+    color: var(--color-dark);
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-menu li a:not(.nav-cta)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-green);
+    transition: width 0.3s ease;
+}
+
+.nav-menu li a:not(.nav-cta):hover::after {
+    width: 100%;
+}
+
+.nav-menu li a:not(.nav-cta):hover {
+    color: var(--color-green);
+    opacity: 1;
+}
+
+.nav-cta {
+    background-color: var(--color-green);
+    color: var(--color-white) !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(168, 181, 160, 0.3);
+    opacity: 1 !important;
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-dark);
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ==============================================
+   ファーストビュー
+============================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(58,58,58,0.55) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    line-height: 1.5;
+    letter-spacing: 0.2em;
+    color: var(--color-white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-serif);
+    position: relative;
+    padding-bottom: 2rem;
+    animation: fadeUpIn 1s ease both;
+}
+
+.hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(232, 213, 196, 0.8), transparent);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    display: block;
+    margin-top: 2rem;
+    color: var(--color-white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), 0 4px 20px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.15em;
+    font-family: var(--font-sans);
+    opacity: 0.95;
+    animation: fadeUpIn 1s ease both 0.3s;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    line-height: 2.2;
+    color: var(--color-white);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.12em;
+    font-family: var(--font-sans);
+    animation: fadeUpIn 1s ease both 0.6s;
+    padding: 2rem 0 1.5rem;
+    margin-top: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-cta {
+    font-size: 1.25rem;
+    padding: 1.5rem 4rem;
+    animation: fadeUpIn 1s ease both 0.9s;
+}
+
+@keyframes fadeUpIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.scroll-indicator span {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background-color: var(--color-dark);
+    margin: 0 auto;
+    animation: scrollAnimation 2s infinite;
+}
+
+@keyframes scrollAnimation {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+    51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+/* ==============================================
+   共感セクション
+============================================== */
+.empathy-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-light-gray);
+}
+
+.pain-points {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.pain-point {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--color-white);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.pain-point:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.pain-point-image {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(168, 181, 160, 0.3);
+}
+
+.pain-point-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(168, 181, 160, 0.2) 0%, rgba(232, 213, 196, 0.2) 100%);
+    pointer-events: none;
+}
+
+.pain-point-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.pain-point:hover .pain-point-image img {
+    transform: scale(1.05);
+}
+
+.pain-point-content {
+    flex: 1;
+}
+
+.pain-point-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    font-weight: 400;
+    color: var(--color-dark);
+    margin: 0;
+}
+
+/* 古いスタイル（削除） */
+.pain-icon {
+    display: none;
+}
+
+.empathy-message {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.emphasis-text {
+    font-size: 1.75rem;
+    font-weight: 500;
+    line-height: 2;
+    color: var(--color-green);
+}
+
+/* ==============================================
+   メッセージセクション
+============================================== */
+.message-section {
+    background-color: #fff;
+    padding: var(--spacing-xl) 0;
+}
+
+.message-text {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--color-dark);
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+.message-highlight {
+    color: var(--color-green);
+    position: relative;
+    display: inline-block;
+}
+
+.message-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-green) 0%, var(--color-beige) 100%);
+    border-radius: 2px;
+}
+
+.message-image {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.message-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.message-subtext {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    color: var(--color-dark);
+    margin-top: 2rem;
+    letter-spacing: 0.05em;
+}
+
+/* ==============================================
+   解決策セクション
+============================================== */
+.solution-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.benefits {
+    margin-top: 5rem;
+}
+
+.benefit-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.benefit-item.reverse {
+    direction: rtl;
+}
+
+.benefit-item.reverse > * {
+    direction: ltr;
+}
+
+.benefit-image {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.benefit-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.benefit-image:hover img {
+    transform: scale(1.05);
+}
+
+.benefit-title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--color-green);
+}
+
+.benefit-description {
+    font-size: 1.125rem;
+    line-height: 2;
+    font-weight: 300;
+}
+
+/* ==============================================
+   事例セクション
+============================================== */
+.case-study-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-light-gray) 100%);
+}
+
+.case-studies {
+    margin-top: 5rem;
+}
+
+.case-study {
+    margin-bottom: 6rem;
+    background-color: var(--color-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.before-image,
+.after-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.before-image img,
+.after-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.before-image:hover img,
+.after-image:hover img {
+    transform: scale(1.08);
+}
+
+.label {
+    position: absolute;
+    top: 3rem;
+    left: 1.5rem;
+    background-color: rgba(255,255,255,0.9);
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+}
+
+.case-study-content {
+    padding: 3rem;
+}
+
+.case-study-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.case-study-spec {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.case-study-cost {
+    font-size: 1rem;
+    color: var(--color-green);
+    margin-bottom: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, rgba(168, 181, 160, 0.1) 0%, rgba(232, 213, 196, 0.1) 100%);
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.case-study-cost strong {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.case-study-voice {
+    font-size: 1.125rem;
+    line-height: 2;
+    font-weight: 300;
+    border-left: 3px solid var(--color-green);
+    padding-left: 2rem;
+    font-style: italic;
+}
+
+/* ==============================================
+   リノベ不動産セクション
+============================================== */
+.renove-real-estate-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-white);
+}
+
+.renove-features {
+    display: flex;
+    gap: 3rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    margin-top: 5rem;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-left: max(2rem, calc((100vw - 980px) / 2));
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-green) rgba(168, 181, 160, 0.1);
+}
+
+.renove-features::-webkit-scrollbar {
+    height: 8px;
+}
+
+.renove-features::-webkit-scrollbar-track {
+    background: rgba(168, 181, 160, 0.1);
+    border-radius: 10px;
+}
+
+.renove-features::-webkit-scrollbar-thumb {
+    background: var(--color-green);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.renove-features::-webkit-scrollbar-thumb:hover {
+    background: #8fa088;
+}
+
+.renove-features:active {
+    cursor: grabbing;
+}
+
+.renove-features-track {
+    display: flex;
+    gap: 3rem;
+}
+
+.renove-feature {
+    min-width: 350px;
+    max-width: 350px;
+    flex-shrink: 0;
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: var(--color-light-gray);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.renove-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.renove-feature-icon {
+    margin-bottom: 1.5rem;
+    width: 120px;
+    height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(168, 181, 160, 0.3);
+}
+
+.renove-feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.renove-feature:hover .renove-feature-icon img {
+    transform: scale(1.1);
+}
+
+.renove-feature-icon svg {
+    display: block;
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+}
+
+.renove-feature-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--color-green);
+}
+
+.renove-feature-description {
+    font-size: 1rem;
+    line-height: 2;
+    font-weight: 300;
+    color: var(--color-dark);
+}
+
+/* ==============================================
+   ワンストップサービスセクション
+============================================== */
+.onestop-section {
+    background-color: #76838b;
+    padding: var(--spacing-xl) 0;
+}
+
+.onestop-title {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.onestop-highlight {
+    color: #f5d742;
+    font-size: 2.25rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.onestop-steps {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.onestop-step {
+    background-color: #3d4a50;
+    width: 150px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    position: relative;
+    border-right: 1px solid #4a5a62;
+}
+
+.onestop-step:last-child {
+    border-right: none;
+}
+
+.onestop-step-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.onestop-step-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    color: #fff;
+}
+
+.onestop-step-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.onestop-step-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ==============================================
+   選ばれる理由
+============================================== */
+.reasons-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.reasons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+.reason-item {
+    padding: 3rem;
+    background-color: var(--color-light-gray);
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.reason-item:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.reason-number {
+    color: var(--color-green);
+    font-weight: 600;
+    margin-right: 0.5rem;
+    font-family: var(--font-serif);
+}
+
+.reason-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-green);
+    padding-bottom: 0.3em;
+    display: inline-block;
+}
+
+.reason-description {
+    font-size: 1.125rem;
+    line-height: 2;
+    font-weight: 300;
+}
+
+/* ==============================================
+   感情訴求セクション
+============================================== */
+.emotional-section {
+    position: relative;
+    padding: var(--spacing-xl) 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--color-dark);
+}
+
+.emotional-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(168,181,160,0.9) 0%, rgba(232,213,196,0.85) 100%);
+}
+
+.emotional-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.emotional-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 4rem;
+    line-height: 1.8;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8),
+                 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.emotional-content {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.emotional-content p {
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6),
+                 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.emotional-emphasis {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    margin: 2.5rem 0 !important;
+}
+
+.emotional-final {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    margin-top: 2.5rem !important;
+}
+
+/* ==============================================
+   フローセクション
+============================================== */
+.flow-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-light-gray);
+}
+
+.flow-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 5rem;
+}
+
+.flow-step {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background-color: var(--color-white);
+    border-radius: 15px;
+    position: relative;
+}
+
+.flow-step::after {
+    content: '→';
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--color-green);
+}
+
+.flow-step:last-child::after {
+    display: none;
+}
+
+.step-number {
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    color: var(--color-green);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.step-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.step-description {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* ==============================================
+   お客様の声
+============================================== */
+.voice-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.voices {
+    margin-top: 5rem;
+    display: grid;
+    gap: 4rem;
+}
+
+.voice-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.voice-image {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.voice-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.voice-item:hover .voice-image img {
+    transform: scale(1.1);
+}
+
+.voice-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--color-green);
+}
+
+.voice-name {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.voice-text {
+    font-size: 1.125rem;
+    line-height: 2;
+    font-weight: 300;
+}
+
+/* ==============================================
+   FAQ
+============================================== */
+.faq-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-light-gray);
+}
+
+.faq-items {
+    max-width: 900px;
+    margin: 5rem auto 0;
+}
+
+.faq-item {
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.faq-question {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.faq-q,
+.faq-a {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.faq-q {
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+
+.faq-a {
+    background-color: var(--color-pink);
+    color: var(--color-dark);
+}
+
+.faq-question p,
+.faq-answer p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+}
+
+.faq-answer {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* ==============================================
+   限定特典
+============================================== */
+.gift-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, var(--color-green) 0%, var(--color-pink) 100%);
+    color: var(--color-white);
+}
+
+.gift-section .section-title {
+    color: var(--color-white);
+}
+
+.gifts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+.gift-item {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.gift-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255,255,255,0.25);
+}
+
+.gift-icon {
+    margin-bottom: 1.5rem;
+    color: var(--color-green);
+}
+
+.gift-icon svg {
+    display: block;
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+}
+
+.gift-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.gift-description {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* ==============================================
+   資料紹介セクション
+============================================== */
+.materials-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
+}
+
+.materials-lead {
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    color: var(--color-dark);
+    opacity: 0.85;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.materials-preview {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+.materials-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.materials-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+.materials-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.materials-cta-text {
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+    font-weight: 500;
+}
+
+/* ==============================================
+   お問い合わせフォーム
+============================================== */
+.contact-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-light-gray);
+}
+
+.contact-lead {
+    font-size: 1.25rem;
+    text-align: center;
+    line-height: 2;
+    margin-bottom: 1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-note {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 4rem;
+}
+
+.contact-form {
+    max-width: 650px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    padding: 4rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.required {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-left: 0.5rem;
+}
+
+.optional {
+    color: #999;
+    font-size: 0.875rem;
+    margin-left: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--color-medium-gray);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    transition: border-color 0.3s ease;
+    background-color: var(--color-white);
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%233A3A3A' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-green);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-privacy {
+    margin-bottom: 2rem;
+}
+
+.form-privacy label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.form-privacy input[type="checkbox"] {
+    width: auto;
+}
+
+.form-privacy a {
+    color: var(--color-green);
+    text-decoration: underline;
+}
+
+.contact-form .cta-button {
+    width: 100%;
+    font-size: 1.25rem;
+    padding: 1.5rem;
+}
+
+.form-submit {
+    background: linear-gradient(135deg, #B8A888 0%, #C4A877 100%);
+    color: var(--color-white);
+    font-weight: 500;
+}
+
+/* ==============================================
+   フッター
+============================================== */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-logo img {
+    height: 60px;
+    width: auto;
+}
+
+.footer-address {
+    font-size: 0.95rem;
+    line-height: 2;
+    font-weight: 300;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-bottom p {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+}
+
+/* ==============================================
+   固定CTA
+============================================== */
+.fixed-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.fixed-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fixed-cta-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, rgba(168, 181, 160, 0.25) 0%, rgba(143, 160, 136, 0.25) 100%);
+    backdrop-filter: blur(8px);
+    color: var(--color-dark);
+    border-radius: 50px;
+    box-shadow: 0 5px 25px rgba(168, 181, 160, 0.2);
+    font-weight: 500;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    position: relative;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.fixed-cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background: rgba(168, 181, 160, 0.3);
+    transform: translate(-50%, -50%);
+    animation: ripple 2s ease-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+    }
+    100% {
+        width: 140%;
+        height: 140%;
+        opacity: 0;
+    }
+}
+
+.fixed-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(168, 181, 160, 0.6);
+    opacity: 1;
+    animation: none;
+}
+
+.fixed-cta-button:hover::before {
+    animation: none;
+}
+
+.fixed-cta-icon {
+    font-size: 1.5rem;
+    animation: ring 2s infinite;
+}
+
+@keyframes ring {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    10%, 30% {
+        transform: rotate(-10deg);
+    }
+    20%, 40% {
+        transform: rotate(10deg);
+    }
+}
+
+.fixed-cta-text {
+    white-space: nowrap;
+}
+
+/* ==============================================
+   レスポンシブ
+============================================== */
+@media (max-width: 768px) {
+    :root {
+        --spacing-xl: 2rem;
+    }
+
+    .sp-only {
+        display: inline;
+    }
+
+    /* 全体レイアウト */
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    /* ヘッダーナビゲーション */
+    .header-container {
+        height: 70px;
+        padding: 0 1rem;
+    }
+
+    .header-logo a img {
+        height: 40px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--color-white);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        gap: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--color-light-gray);
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 1.5rem 2rem;
+        width: 100%;
+    }
+
+    .nav-menu li a:not(.nav-cta)::after {
+        display: none;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    /* ヒーローセクション */
+    .hero {
+        min-height: 500px;
+        background-attachment: scroll;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+        line-height: 1.6;
+        letter-spacing: 0.1em;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.8;
+        letter-spacing: 0.08em;
+        margin-top: 1.5rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        line-height: 2;
+        padding: 1.5rem 0 1rem;
+        margin-top: 2rem;
+        letter-spacing: 0.08em;
+    }
+
+    .hero-cta {
+        font-size: 1rem;
+        padding: 1.25rem 2rem;
+    }
+
+    /* セクションタイトル */
+    .section-title {
+        font-size: 1.5rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .section-lead {
+        font-size: 1rem;
+        line-height: 1.9;
+        margin-bottom: 3rem;
+    }
+
+    /* メッセージセクション モバイル */
+    .message-text {
+        font-size: 1.5rem;
+        line-height: 1.7;
+    }
+
+    .message-highlight::after {
+        height: 3px;
+    }
+
+    .message-subtext {
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+    }
+
+    /* 解決策セクション */
+    .benefit-item,
+    .benefit-item.reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        direction: ltr;
+    }
+
+    .benefit-image img {
+        height: 300px;
+    }
+
+    .benefit-title {
+        font-size: 1.25rem;
+        line-height: 1.6;
+    }
+
+    .benefit-description {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+
+    /* 事例セクション */
+    .before-after {
+        grid-template-columns: 1fr;
+    }
+
+    .before-image img,
+    .after-image img {
+        height: 350px;
+    }
+
+    .case-study-title {
+        font-size: 1.25rem;
+    }
+
+    .case-study-spec {
+        font-size: 0.875rem;
+    }
+
+    .case-study-cost {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.25rem;
+    }
+
+    .case-study-voice {
+        font-size: 1rem;
+        line-height: 1.9;
+        padding-left: 1.5rem;
+    }
+
+    /* 選ばれる理由セクション */
+    .reasons {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .reason-item {
+        padding: 2rem 1.5rem;
+    }
+
+    .reason-title {
+        font-size: 1.25rem;
+        line-height: 1.6;
+    }
+
+    .reason-description {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+
+    /* リノベ不動産セクション */
+    .renove-feature-title {
+        font-size: 1.25rem;
+    }
+
+    .renove-feature-description {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+
+    /* ワンストップセクション モバイル */
+    .onestop-title {
+        font-size: 1.25rem;
+        line-height: 1.7;
+        padding: 0 1rem;
+    }
+
+    .onestop-highlight {
+        font-size: 1.5rem;
+    }
+
+    .onestop-steps {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .onestop-step {
+        width: calc(33.333% - 0px);
+        padding: 1rem 0.5rem;
+        border-right: 1px solid #4a5a62;
+        border-bottom: 1px solid #4a5a62;
+    }
+
+    .onestop-step:nth-child(3) {
+        border-right: none;
+    }
+
+    .onestop-step:nth-child(4),
+    .onestop-step:nth-child(5),
+    .onestop-step:nth-child(6) {
+        border-bottom: none;
+    }
+
+    .onestop-step:nth-child(6) {
+        border-right: none;
+    }
+
+    .onestop-step-number {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .onestop-step-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 0.5rem;
+    }
+
+    .onestop-step-label {
+        font-size: 0.75rem;
+    }
+
+    /* お客様の声セクション */
+    .voice-item {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .voice-image {
+        margin: 0 auto;
+    }
+
+    .voice-title {
+        font-size: 1.25rem;
+    }
+
+    .voice-name {
+        font-size: 0.875rem;
+    }
+
+    .voice-text {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+
+    /* ギフトセクション */
+    .gifts {
+        grid-template-columns: 1fr;
+    }
+
+    .gift-title {
+        font-size: 1.125rem;
+    }
+
+    .gift-description {
+        font-size: 0.95rem;
+    }
+
+    /* 感情訴求セクション */
+    .emotional-section {
+        background-attachment: scroll;
+    }
+
+    .emotional-title {
+        font-size: 1.5rem;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+    }
+
+    .emotional-content {
+        padding: 0 1rem;
+        max-width: 450px;
+    }
+
+    .emotional-content p {
+        font-size: 0.9rem;
+        line-height: 1.85;
+        margin-bottom: 1.75rem;
+    }
+
+    .emotional-emphasis {
+        font-size: 1rem !important;
+        margin: 2rem 0 !important;
+    }
+
+    .emotional-final {
+        font-size: 1rem !important;
+        margin-top: 2rem !important;
+    }
+
+    /* FAQセクション */
+    .faq-question p,
+    .faq-answer p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    /* 資料紹介セクション */
+    .materials-lead {
+        font-size: 1rem;
+        line-height: 1.8;
+        padding: 0 1rem;
+    }
+
+    /* お問い合わせフォーム */
+    .contact-form {
+        padding: 2rem;
+    }
+
+    .contact-lead {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .form-label {
+        font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 1rem;
+        padding: 0.875rem;
+    }
+
+    .contact-form .cta-button {
+        font-size: 1.125rem;
+        padding: 1.25rem;
+    }
+
+    .renove-features {
+        gap: 2rem;
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 1rem;
+        cursor: auto;
+    }
+
+    .renove-features::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .renove-features-track {
+        gap: 2rem;
+    }
+
+    .renove-feature {
+        min-width: 280px;
+        max-width: 280px;
+        padding: 2rem 1.5rem;
+    }
+
+    .renove-flow-steps {
+        flex-direction: column;
+    }
+
+    .renove-flow-arrow {
+        transform: rotate(90deg);
+        margin: 1rem 0;
+    }
+
+    /* CTAボックス */
+    .cta-box {
+        padding: 2rem 1rem;
+    }
+
+    .cta-box-text {
+        font-size: 1.125rem;
+        line-height: 1.7;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 1.125rem 2rem;
+        max-width: 100%;
+    }
+
+    .cta-badge {
+        font-size: 0.8rem;
+    }
+
+    .cta-note {
+        font-size: 0.8rem;
+    }
+
+    /* CTAセクション - モバイル対応 */
+    .cta-section {
+        padding: 3rem 0;
+        background-attachment: scroll;
+    }
+
+    .fixed-cta {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .fixed-cta-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* 痛みポイントセクション */
+    .pain-point {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .pain-point-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .pain-point-content p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .empathy-message {
+        padding: 3rem 1.5rem;
+    }
+
+    .emphasis-text {
+        font-size: 1.25rem;
+        line-height: 1.7;
+    }
+
+    /* スクロールインジケータ */
+    .scroll-indicator {
+        bottom: 2rem;
+    }
+
+    .scroll-indicator span {
+        font-size: 0.75rem;
+    }
+
+    /* フッター */
+    .footer {
+        padding: 3rem 0 1.5rem;
+    }
+
+    .footer-logo img {
+        height: 50px;
+    }
+
+    .footer-address {
+        font-size: 0.875rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+
+}
