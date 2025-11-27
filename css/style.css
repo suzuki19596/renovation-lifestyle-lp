@@ -1771,65 +1771,70 @@ a:hover {
 
     /* ヒーローセクション */
     .hero {
-        min-height: 500px;
+        min-height: 100vh;
         background-attachment: scroll;
     }
 
+    .hero-content {
+        padding-top: 100px; /* ロゴとの重なり防止 */
+    }
+
     .hero-title {
-        font-size: 1.75rem;
-        line-height: 1.6;
-        letter-spacing: 0.1em;
-        margin-bottom: 2rem;
-        padding-bottom: 1.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-        line-height: 1.8;
-        letter-spacing: 0.08em;
-        margin-top: 1.5rem;
-    }
-
-    .hero-description {
-        font-size: 1rem;
-        line-height: 2;
-        padding: 1.5rem 0 1rem;
-        margin-top: 2rem;
-        letter-spacing: 0.08em;
-    }
-
-    .hero-cta {
-        font-size: 1rem;
-        padding: 1.25rem 2rem;
-    }
-
-    /* セクションタイトル */
-    .section-title {
         font-size: 1.5rem;
-        line-height: 1.7;
+        line-height: 1.6;
+        letter-spacing: 0.08em;
         margin-bottom: 1.5rem;
         padding-bottom: 1rem;
     }
 
-    .section-lead {
-        font-size: 1rem;
+    .hero-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.8;
+        letter-spacing: 0.06em;
+        margin-top: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
         line-height: 1.9;
-        margin-bottom: 3rem;
+        padding: 1rem 0 0.75rem;
+        margin-top: 1.5rem;
+        letter-spacing: 0.06em;
+    }
+
+    .hero-cta {
+        font-size: 0.9rem;
+        padding: 1rem 1.5rem;
+    }
+
+    /* セクションタイトル */
+    .section-title {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .section-lead {
+        font-size: 0.9rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
     }
 
     /* メッセージセクション モバイル */
     .message-text {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         line-height: 1.7;
     }
 
     .message-highlight::after {
-        height: 3px;
+        height: 2px;
     }
 
     .message-subtext {
-        font-size: 1.1rem;
-        margin-top: 1.5rem;
+        font-size: 0.9rem;
+        line-height: 1.8;
+        margin-top: 1.25rem;
     }
 
     /* 解決策セクション */
@@ -1886,42 +1891,42 @@ a:hover {
     /* 選ばれる理由セクション */
     .reasons {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .reason-item {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1.25rem;
     }
 
     .reason-title {
-        font-size: 1.25rem;
-        line-height: 1.6;
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
     .reason-description {
-        font-size: 0.95rem;
-        line-height: 1.9;
+        font-size: 0.85rem;
+        line-height: 1.8;
     }
 
     /* リノベ不動産セクション */
     .renove-feature-title {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 
     .renove-feature-description {
-        font-size: 0.95rem;
-        line-height: 1.9;
+        font-size: 0.85rem;
+        line-height: 1.8;
     }
 
     /* ワンストップセクション モバイル */
     .onestop-title {
-        font-size: 1.25rem;
-        line-height: 1.7;
-        padding: 0 1rem;
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 0 0.75rem;
     }
 
     .onestop-highlight {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .onestop-steps {
@@ -1968,7 +1973,7 @@ a:hover {
     /* お客様の声セクション */
     .voice-item {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .voice-image {
@@ -1976,16 +1981,17 @@ a:hover {
     }
 
     .voice-title {
-        font-size: 1.25rem;
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
     .voice-name {
-        font-size: 0.875rem;
+        font-size: 0.8rem;
     }
 
     .voice-text {
-        font-size: 0.95rem;
-        line-height: 1.9;
+        font-size: 0.9rem;
+        line-height: 1.8;
     }
 
     /* ギフトセクション */
@@ -2175,11 +2181,16 @@ a:hover {
 
     /* スクロールインジケータ */
     .scroll-indicator {
-        bottom: 2rem;
+        bottom: 1rem;
     }
 
     .scroll-indicator span {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .scroll-line {
+        height: 40px;
     }
 
     /* フッター */
@@ -2466,21 +2477,74 @@ a:hover {
 /* モバイル対応 */
 @media (max-width: 768px) {
     .quiz-modal-content {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1.25rem;
         max-width: 95%;
-        max-height: 90vh;
+        max-height: 85vh;
+        border-radius: 16px;
     }
 
     .quiz-question {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
     }
 
     .quiz-option {
-        padding: 1rem 1.25rem;
+        padding: 0.875rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .quiz-submit {
+        margin-top: 1.5rem;
+        padding: 1rem 1.5rem;
         font-size: 1rem;
     }
 
+    .quiz-back {
+        margin-top: 1rem;
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .quiz-result-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .quiz-result-cards {
+        max-height: none;
+        overflow-y: visible;
+    }
+
     .quiz-result-card img {
-        height: 150px;
+        height: 140px;
+    }
+
+    .quiz-result-card-content {
+        padding: 1rem;
+    }
+
+    .quiz-result-card-title {
+        font-size: 1rem;
+    }
+
+    .quiz-result-card-specs {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .quiz-result-card-desc {
+        font-size: 0.85rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .quiz-result-card-price {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    .quiz-contact-btn {
+        margin-top: 1.25rem;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
     }
 }
