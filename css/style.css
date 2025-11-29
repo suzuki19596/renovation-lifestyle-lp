@@ -36,6 +36,59 @@ body {
     line-height: 1.8;
     background-color: var(--color-white);
     overflow-x: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+/* PC版と同じ改行を維持（<br>タグの位置でのみ改行） */
+.section-title,
+.section-lead,
+.hero-title,
+.hero-subtitle,
+.emotional-title,
+.message-text,
+.message-subtext,
+.benefit-title,
+.benefit-description,
+.cta-box-text,
+.contact-lead,
+.materials-lead,
+.renove-feature-description,
+.pain-point-content p,
+.voice-text,
+.faq-answer p,
+.reason-description p,
+.case-study-voice {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+
+/* スマホでもPC版と同じ表示を強制 */
+@media (max-width: 768px) {
+    /* テキストをビューポート幅に合わせてスケール */
+    .section-title,
+    .hero-title,
+    .emotional-title {
+        font-size: clamp(1.25rem, 5vw, 2rem);
+    }
+
+    .section-lead,
+    .hero-subtitle,
+    .message-text,
+    .message-subtext,
+    .contact-lead,
+    .materials-lead {
+        font-size: clamp(0.875rem, 3.5vw, 1.125rem);
+    }
+
+    .benefit-description,
+    .renove-feature-description,
+    .voice-text,
+    .pain-point-content p,
+    .reason-description p {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+    }
 }
 
 img {
