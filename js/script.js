@@ -8,15 +8,15 @@ const ABTestSystem = {
         ctaButton: {
             control: {
                 text: '無料相談で「私らしい暮らし」を見つける',
-                color: '#A8B5A0'
+                color: '#E67E22'
             },
             variantA: {
                 text: '今すぐ無料相談を予約する',
-                color: '#8fa088'
+                color: '#D35400'
             },
             variantB: {
                 text: '理想の住まいを無料で相談',
-                color: '#7d9476'
+                color: '#F39C12'
             }
         },
         heroTitle: {
