@@ -551,6 +551,7 @@ a:hover {
 }
 
 .scroll-indicator {
+    display: none; /* CTAボタンとの重なりを防ぐため非表示 */
     position: absolute;
     bottom: 3rem;
     left: 50%;
