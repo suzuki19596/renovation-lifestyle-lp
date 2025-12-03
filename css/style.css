@@ -1612,8 +1612,8 @@ a:hover {
    フッター
 ============================================== */
 .footer {
-    background-color: var(--color-dark);
-    color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-dark);
     padding: 4rem 0 2rem;
 }
 
@@ -1644,12 +1644,12 @@ a:hover {
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .footer-bottom p {
     font-size: 0.875rem;
-    color: rgba(255,255,255,0.6);
+    color: rgba(0,0,0,0.6);
 }
 
 /* ==============================================
