@@ -543,48 +543,44 @@ faqItems.forEach(el => {
     faqObserver.observe(el);
 });
 
-// ヘッダーのスクロール時の背景変更（オプション）
-let lastScroll = 0;
-let isContactVisible = false; // 問い合わせセクションが見えているかどうか
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    // 固定CTAの表示制御
-    const fixedCta = document.getElementById('fixedCta');
-    if (fixedCta) {
-        // 問い合わせセクションが見えている場合は非表示
-        if (isContactVisible) {
-            fixedCta.classList.remove('visible');
-        } else if (currentScroll > 300) {
-            // 300px以上スクロールしたら表示
-            fixedCta.classList.add('visible');
-        } else {
-            fixedCta.classList.remove('visible');
-        }
-    }
-
-    lastScroll = currentScroll;
-});
+// 固定CTAバーの表示制御
+let isContactVisible = false;
 
 // 問い合わせセクションの表示検知
 const contactSection = document.getElementById('contact');
-if (contactSection) {
+const fixedCtaBar = document.getElementById('fixedCtaBar');
+
+if (contactSection && fixedCtaBar) {
     const contactObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             isContactVisible = entry.isIntersecting;
-            const fixedCta = document.getElementById('fixedCta');
-            if (fixedCta && isContactVisible) {
-                fixedCta.classList.remove('visible');
+            if (isContactVisible) {
+                fixedCtaBar.classList.add('hidden');
+            } else {
+                fixedCtaBar.classList.remove('hidden');
             }
         });
     }, {
-        threshold: 0.1, // セクションの10%が見えたら反応
-        rootMargin: '-100px 0px 0px 0px' // 少し余裕を持たせる
+        threshold: 0.1,
+        rootMargin: '-50px 0px 0px 0px'
     });
 
     contactObserver.observe(contactSection);
 }
+
+// 固定CTAバーのクリックでフォームの問い合わせ項目を自動選択
+document.querySelectorAll('.fixed-cta-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const inquiryType = this.dataset.inquiry;
+        const inquirySelect = document.getElementById('inquiry-type');
+        if (inquirySelect && inquiryType) {
+            // 少し遅延させてスクロール後に選択
+            setTimeout(() => {
+                inquirySelect.value = inquiryType;
+            }, 500);
+        }
+    });
+});
 
 // FAQ アコーディオン機能（オプション - 今回はシンプルに全表示）
 // faqItemsは上で既に定義されているので再利用

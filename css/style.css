@@ -28,16 +28,21 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 body {
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     color: var(--color-dark);
     line-height: 1.8;
     background-color: var(--color-white);
     overflow-x: hidden;
     word-break: keep-all;
     overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
 }
 
 /* PC版と同じ改行を維持（<br>タグの位置でのみ改行） */
@@ -160,7 +165,7 @@ a:hover {
     text-align: center;
     margin-bottom: 4rem;
     line-height: 2;
-    font-weight: 300;
+    font-weight: 400;
     max-width: 750px;
     margin-left: auto;
     margin-right: auto;
@@ -176,6 +181,7 @@ a:hover {
     border-radius: 50px;
     font-size: 1.125rem;
     font-weight: 500;
+    font-family: var(--font-sans);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -223,8 +229,8 @@ a:hover {
 }
 
 .cta-box-text {
-    font-size: 1.375rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
     margin-bottom: 2rem;
     line-height: 1.8;
     color: var(--color-dark);
@@ -287,18 +293,35 @@ a:hover {
 
 .cta-section .cta-box-text {
     color: var(--color-dark);
-    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+    font-size: 1.625rem;
+    font-weight: 700;
+    text-shadow: 0 2px 15px rgba(255, 255, 255, 1),
+                 0 0 30px rgba(255, 255, 255, 0.9);
 }
 
 .cta-section .cta-badge {
     color: var(--color-dark);
-    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff,
+        0 0 8px rgba(255, 255, 255, 1),
+        0 0 15px rgba(255, 255, 255, 0.8);
 }
 
 .cta-section .cta-note {
     color: var(--color-dark);
-    text-shadow: 0 1px 6px rgba(255, 255, 255, 0.5);
-    opacity: 0.9;
+    font-weight: 500;
+    text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff,
+        0 0 8px rgba(255, 255, 255, 1),
+        0 0 15px rgba(255, 255, 255, 0.8);
+    opacity: 1;
 }
 
 .cta-section .cta-button {
@@ -326,6 +349,9 @@ a:hover {
     box-shadow: none;
     z-index: 1000;
     transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 .header.scrolled {
@@ -370,6 +396,7 @@ a:hover {
     color: var(--color-dark);
     font-size: 1rem;
     font-weight: 400;
+    font-family: var(--font-sans);
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
@@ -455,9 +482,13 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: cover;
-    background-position: center;
+    background-size: 120%;
+    background-position: center top;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin-top: 0;
+    padding-top: 0;
+    background-color: #4a4a4a;
 }
 
 .hero-overlay {
@@ -466,7 +497,7 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(58,58,58,0.55) 100%);
+    background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
 }
 
 .hero-content {
@@ -478,7 +509,7 @@ a:hover {
 
 .hero-title {
     font-size: 3.5rem;
-    font-weight: 300;
+    font-weight: 500;
     margin-bottom: 3rem;
     line-height: 1.5;
     letter-spacing: 0.2em;
@@ -503,7 +534,7 @@ a:hover {
 
 .hero-subtitle {
     font-size: 1.5rem;
-    font-weight: 300;
+    font-weight: 500;
     display: block;
     margin-top: 2rem;
     color: var(--color-white);
@@ -517,7 +548,7 @@ a:hover {
 .hero-description {
     font-size: 1.25rem;
     margin-bottom: 3rem;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 2.2;
     color: var(--color-white);
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
@@ -537,6 +568,7 @@ a:hover {
     font-size: 1.25rem;
     padding: 1.5rem 4rem;
     animation: fadeUpIn 1s ease both 0.9s;
+    margin-bottom: 80px;
 }
 
 @keyframes fadeUpIn {
@@ -756,6 +788,21 @@ a:hover {
     padding: var(--spacing-xl) 0;
 }
 
+.solution-section .section-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 2.75rem;
+    letter-spacing: 0.12em;
+    line-height: 1.7;
+}
+
+.solution-section .section-lead {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.25rem;
+    letter-spacing: 0.08em;
+}
+
 .benefits {
     margin-top: 5rem;
 }
@@ -794,16 +841,26 @@ a:hover {
 }
 
 .benefit-title {
+    font-family: var(--font-serif);
     font-size: 1.75rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
     color: var(--color-green);
+    letter-spacing: 0.08em;
+    text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff,
+        0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .benefit-description {
+    font-family: var(--font-serif);
     font-size: 1.125rem;
-    line-height: 2;
-    font-weight: 300;
+    line-height: 1.8;
+    font-weight: 400;
+    letter-spacing: 0.05em;
 }
 
 /* ==============================================
@@ -896,7 +953,7 @@ a:hover {
 .case-study-voice {
     font-size: 1.125rem;
     line-height: 2;
-    font-weight: 300;
+    font-weight: 400;
     border-left: 3px solid var(--color-green);
     padding-left: 2rem;
     font-style: italic;
@@ -917,9 +974,10 @@ a:hover {
     overflow-y: hidden;
     cursor: grab;
     margin-top: 5rem;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    padding-left: max(2rem, calc((100vw - 980px) / 2));
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 1rem;
     scrollbar-width: thin;
@@ -1011,7 +1069,7 @@ a:hover {
 .renove-feature-description {
     font-size: 1rem;
     line-height: 2;
-    font-weight: 300;
+    font-weight: 400;
     color: var(--color-dark);
 }
 
@@ -1135,7 +1193,7 @@ a:hover {
 .reason-description {
     font-size: 1.125rem;
     line-height: 2;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* ==============================================
@@ -1166,7 +1224,7 @@ a:hover {
 
 .emotional-title {
     font-size: 2.5rem;
-    font-weight: 300;
+    font-weight: 500;
     text-align: center;
     margin-bottom: 4rem;
     line-height: 1.8;
@@ -1313,7 +1371,7 @@ a:hover {
 .voice-text {
     font-size: 1.125rem;
     line-height: 2;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* ==============================================
@@ -1556,6 +1614,10 @@ a:hover {
     background-color: var(--color-white);
 }
 
+.form-group label {
+    font-family: var(--font-serif);
+}
+
 .form-group select {
     cursor: pointer;
     appearance: none;
@@ -1638,7 +1700,7 @@ a:hover {
 .footer-address {
     font-size: 0.95rem;
     line-height: 2;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .footer-bottom {
@@ -1653,106 +1715,60 @@ a:hover {
 }
 
 /* ==============================================
-   固定CTA
+   固定CTAバー
 ============================================== */
-.fixed-cta {
+.fixed-cta-bar {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
     z-index: 1000;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
-
-.fixed-cta.visible {
     opacity: 1;
     transform: translateY(0);
+    transition: all 0.3s ease;
 }
 
-.fixed-cta-button {
+.fixed-cta-bar.hidden {
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
+}
+
+.fixed-cta-btn {
+    flex: 1;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, #E67E22 0%, #D35400 100%);
-    backdrop-filter: blur(8px);
-    color: #fff;
-    border-radius: 50px;
-    box-shadow: 0 5px 25px rgba(230, 126, 34, 0.4);
-    font-weight: 500;
+    justify-content: center;
+    padding: 1.25rem 1rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
     font-size: 1.125rem;
+    color: #fff;
+    text-decoration: none;
     transition: all 0.3s ease;
-    position: relative;
-    animation: pulse 2s ease-in-out infinite;
 }
 
-.fixed-cta-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    border-radius: 50px;
-    background: rgba(230, 126, 34, 0.3);
-    transform: translate(-50%, -50%);
-    animation: ripple 2s ease-out infinite;
+.fixed-cta-left {
+    background: linear-gradient(135deg, var(--color-green) 0%, #8fa088 100%);
 }
 
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
+.fixed-cta-right {
+    background: linear-gradient(135deg, #E67E22 0%, #D35400 100%);
 }
 
-@keyframes ripple {
-    0% {
-        width: 100%;
-        height: 100%;
-        opacity: 0.8;
-    }
-    100% {
-        width: 140%;
-        height: 140%;
-        opacity: 0;
-    }
+.fixed-cta-left:hover {
+    background: linear-gradient(135deg, #8fa088 0%, #7a8c74 100%);
+    opacity: 1;
 }
 
-.fixed-cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(230, 126, 34, 0.6);
+.fixed-cta-right:hover {
     background: linear-gradient(135deg, #D35400 0%, #C0392B 100%);
     opacity: 1;
-    animation: none;
 }
 
-.fixed-cta-button:hover::before {
-    animation: none;
-}
-
-.fixed-cta-icon {
-    font-size: 1.5rem;
-    animation: ring 2s infinite;
-}
-
-@keyframes ring {
-    0%, 100% {
-        transform: rotate(0deg);
-    }
-    10%, 30% {
-        transform: rotate(-10deg);
-    }
-    20%, 40% {
-        transform: rotate(10deg);
-    }
-}
-
-.fixed-cta-text {
-    white-space: nowrap;
+.fixed-cta-label {
+    letter-spacing: 0.1em;
 }
 
 /* ==============================================
@@ -1828,40 +1844,50 @@ a:hover {
 
     /* ヒーローセクション */
     .hero {
-        min-height: 100vh;
+        min-height: auto;
+        height: auto;
         background-attachment: scroll;
+        background-size: 150% auto;
+        background-position: center top;
+        align-items: flex-start;
+        padding-top: 55px;
+        padding-bottom: 0;
     }
 
     .hero-content {
-        padding-top: 100px; /* ロゴとの重なり防止 */
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .hero-title {
-        font-size: 1.5rem;
-        line-height: 1.6;
-        letter-spacing: 0.08em;
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
+        font-size: 1.2rem;
+        line-height: 1.4;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.3rem;
+        padding-bottom: 0.3rem;
     }
 
     .hero-subtitle {
-        font-size: 0.9rem;
-        line-height: 1.8;
-        letter-spacing: 0.06em;
-        margin-top: 1rem;
+        font-size: 0.65rem;
+        line-height: 1.4;
+        letter-spacing: 0.03em;
+        margin-top: 0.3rem;
     }
 
     .hero-description {
-        font-size: 0.9rem;
-        line-height: 1.9;
-        padding: 1rem 0 0.75rem;
-        margin-top: 1.5rem;
-        letter-spacing: 0.06em;
+        font-size: 0.6rem;
+        line-height: 1.4;
+        padding: 0.15rem 0;
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+        letter-spacing: 0.03em;
     }
 
     .hero-cta {
-        font-size: 0.9rem;
-        padding: 1rem 1.5rem;
+        font-size: 0.65rem;
+        padding: 0.5rem 0.8rem;
+        max-width: 180px;
+        margin: 0 auto;
     }
 
     /* セクションタイトル */
@@ -1895,6 +1921,16 @@ a:hover {
     }
 
     /* 解決策セクション */
+    .solution-section .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.08em;
+    }
+
+    .solution-section .section-lead {
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+    }
+
     .benefit-item,
     .benefit-item.reverse {
         grid-template-columns: 1fr;
@@ -2138,6 +2174,7 @@ a:hover {
 
     .renove-features {
         gap: 2rem;
+        width: calc(100% + 3rem);
         margin-left: -1.5rem;
         margin-right: -1.5rem;
         padding-left: 1.5rem;
@@ -2175,7 +2212,8 @@ a:hover {
     }
 
     .cta-box-text {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
+        font-weight: 600;
         line-height: 1.7;
     }
 
