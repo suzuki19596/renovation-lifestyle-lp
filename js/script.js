@@ -805,7 +805,8 @@ function resetQuiz() {
     quizAnswers = {
         gender: null,
         age: null,
-        layout: null,
+        location: null,
+        timing: null,
         budget: null
     };
 
@@ -854,9 +855,12 @@ document.querySelectorAll('.quiz-option').forEach(option => {
                 quizAnswers.age = value;
                 break;
             case 3:
-                quizAnswers.layout = value;
+                quizAnswers.location = value;
                 break;
             case 4:
+                quizAnswers.timing = value;
+                break;
+            case 5:
                 quizAnswers.budget = value;
                 // 最後の質問では「結果を見る」ボタンを表示
                 if (quizSubmit) {
@@ -891,7 +895,7 @@ document.querySelectorAll('.quiz-back').forEach(backBtn => {
         const targetStep = parseInt(this.dataset.back);
         goToStep(targetStep);
 
-        // 結果を見るボタンを非表示（質問4から戻った場合）
+        // 結果を見るボタンを非表示（質問5から戻った場合）
         if (quizSubmit) {
             quizSubmit.style.display = 'none';
         }

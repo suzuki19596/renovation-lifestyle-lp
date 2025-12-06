@@ -926,9 +926,9 @@
             <!-- 質問1: 性別 -->
             <div class="quiz-step" data-step="1">
                 <div class="quiz-progress">
-                    <div class="quiz-progress-bar" style="width: 25%;"></div>
+                    <div class="quiz-progress-bar" style="width: 20%;"></div>
                 </div>
-                <p class="quiz-step-number">質問 1/4</p>
+                <p class="quiz-step-number">質問 1/5</p>
                 <h3 class="quiz-question">ご性別を教えてください</h3>
                 <div class="quiz-options">
                     <button type="button" class="quiz-option" data-value="male">男性</button>
@@ -939,50 +939,67 @@
             <!-- 質問2: 年齢 -->
             <div class="quiz-step" data-step="2" style="display: none;">
                 <div class="quiz-progress">
-                    <div class="quiz-progress-bar" style="width: 50%;"></div>
+                    <div class="quiz-progress-bar" style="width: 40%;"></div>
                 </div>
-                <p class="quiz-step-number">質問 2/4</p>
+                <p class="quiz-step-number">質問 2/5</p>
                 <h3 class="quiz-question">ご年齢を教えてください</h3>
                 <div class="quiz-options">
-                    <button type="button" class="quiz-option" data-value="18-29">18歳〜29歳</button>
+                    <button type="button" class="quiz-option" data-value="0-19">〜19歳</button>
+                    <button type="button" class="quiz-option" data-value="20-29">20歳〜29歳</button>
                     <button type="button" class="quiz-option" data-value="30-39">30歳〜39歳</button>
-                    <button type="button" class="quiz-option" data-value="40-59">40歳〜59歳</button>
-                    <button type="button" class="quiz-option" data-value="60+">60歳〜</button>
+                    <button type="button" class="quiz-option" data-value="40-49">40歳〜49歳</button>
+                    <button type="button" class="quiz-option" data-value="50+">50歳〜</button>
                 </div>
                 <button type="button" class="quiz-back" data-back="1">← 前の質問に戻る</button>
             </div>
 
-            <!-- 質問3: 間取り -->
+            <!-- 質問3: 変えたい場所 -->
             <div class="quiz-step" data-step="3" style="display: none;">
                 <div class="quiz-progress">
-                    <div class="quiz-progress-bar" style="width: 75%;"></div>
+                    <div class="quiz-progress-bar" style="width: 60%;"></div>
                 </div>
-                <p class="quiz-step-number">質問 3/4</p>
-                <h3 class="quiz-question">ご希望の間取りを教えてください</h3>
+                <p class="quiz-step-number">質問 3/5</p>
+                <h3 class="quiz-question">変えたい場所を教えてください</h3>
                 <div class="quiz-options">
-                    <button type="button" class="quiz-option" data-value="1">1R・1K・1DK・1LDK</button>
-                    <button type="button" class="quiz-option" data-value="2">2K・2DK・2LDK</button>
-                    <button type="button" class="quiz-option" data-value="3">3K・3DK・3LDK</button>
-                    <button type="button" class="quiz-option" data-value="4+">4K・4DK・4LDK以上</button>
+                    <button type="button" class="quiz-option" data-value="kitchen">キッチン</button>
+                    <button type="button" class="quiz-option" data-value="bathroom">浴室</button>
+                    <button type="button" class="quiz-option" data-value="toilet">トイレ</button>
+                    <button type="button" class="quiz-option" data-value="exterior">外壁</button>
                 </div>
                 <button type="button" class="quiz-back" data-back="2">← 前の質問に戻る</button>
             </div>
 
-            <!-- 質問4: 費用 -->
+            <!-- 質問4: いつ頃始めたいか -->
             <div class="quiz-step" data-step="4" style="display: none;">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" style="width: 80%;"></div>
+                </div>
+                <p class="quiz-step-number">質問 4/5</p>
+                <h3 class="quiz-question">いつ頃始めたいですか？</h3>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-value="immediately">すぐにでも</button>
+                    <button type="button" class="quiz-option" data-value="within1year">1年以内</button>
+                    <button type="button" class="quiz-option" data-value="undecided">未定</button>
+                </div>
+                <button type="button" class="quiz-back" data-back="3">← 前の質問に戻る</button>
+            </div>
+
+            <!-- 質問5: 予算 -->
+            <div class="quiz-step" data-step="5" style="display: none;">
                 <div class="quiz-progress">
                     <div class="quiz-progress-bar" style="width: 100%;"></div>
                 </div>
-                <p class="quiz-step-number">質問 4/4</p>
+                <p class="quiz-step-number">質問 5/5</p>
                 <h3 class="quiz-question">ご予算を教えてください</h3>
                 <div class="quiz-options quiz-options-budget">
-                    <button type="button" class="quiz-option" data-value="0-999">〜999万円</button>
-                    <button type="button" class="quiz-option" data-value="1000-1999">1,000万円〜1,999万円</button>
-                    <button type="button" class="quiz-option" data-value="2000-2999">2,000万円〜2,999万円</button>
-                    <button type="button" class="quiz-option" data-value="3000-3999">3,000万円〜3,999万円</button>
-                    <button type="button" class="quiz-option" data-value="4000+">4,000万円〜</button>
+                    <button type="button" class="quiz-option" data-value="0-100">〜100万円</button>
+                    <button type="button" class="quiz-option" data-value="101-200">101万円〜200万円</button>
+                    <button type="button" class="quiz-option" data-value="201-300">201万円〜300万円</button>
+                    <button type="button" class="quiz-option" data-value="301-400">301万円〜400万円</button>
+                    <button type="button" class="quiz-option" data-value="401-500">401万円〜500万円</button>
+                    <button type="button" class="quiz-option" data-value="501+">501万円〜</button>
                 </div>
-                <button type="button" class="quiz-back" data-back="3">← 前の質問に戻る</button>
+                <button type="button" class="quiz-back" data-back="4">← 前の質問に戻る</button>
                 <button type="button" class="quiz-submit" id="quizSubmit" style="display: none;">結果を見る</button>
             </div>
 
