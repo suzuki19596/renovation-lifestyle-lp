@@ -2414,10 +2414,11 @@ a:hover {
 
 .quiz-question {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--color-dark);
     margin-bottom: 2rem;
+    white-space: nowrap;
 }
 
 .quiz-options {
