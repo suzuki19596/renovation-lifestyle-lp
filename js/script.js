@@ -672,100 +672,64 @@ const quizRestart = document.getElementById('quizRestart');
 const quizResult = document.getElementById('quizResult');
 const quizResultCards = document.getElementById('quizResultCards');
 
-// 物件データ（gallery1〜8に対応）
-// budget: 選択された予算に厳密にマッチする物件のみ表示
-const propertyData = [
-    {
-        image: 'images/gallery1.jpg',
-        title: 'ナチュラルモダン',
-        specs: '築18年・2LDK・62㎡',
-        description: '木の温もりを感じるナチュラルなデザイン。開放感のあるリビングで、心地よい暮らしを実現します。',
-        price: '約2,480万円',
-        budget: ['2000-2999'],
-        layout: ['2']
+// リフォームデータ（箇所別の費用目安）
+const reformData = {
+    living: {
+        name: 'リビング',
+        description: '床・壁・天井の張替え、間取り変更など',
+        priceRange: {
+            '0-200': '50万円〜150万円',
+            '201-400': '150万円〜350万円',
+            '401-600': '350万円〜550万円',
+            '601+': '550万円〜'
+        },
+        details: '床材の張替え、壁紙の交換、照明器具の変更、間仕切りの撤去など、お好みのスタイルに合わせてカスタマイズできます。'
     },
-    {
-        image: 'images/gallery2.jpg',
-        title: 'シンプルスタイリッシュ',
-        specs: '築22年・1LDK・45㎡',
-        description: '洗練されたモノトーンデザイン。コンパクトながら機能的な空間で、都会的な暮らしを。',
-        price: '約1,580万円',
-        budget: ['1000-1999'],
-        layout: ['1']
+    kitchen: {
+        name: 'キッチン',
+        description: 'システムキッチン交換、レイアウト変更など',
+        priceRange: {
+            '0-200': '80万円〜180万円',
+            '201-400': '180万円〜380万円',
+            '401-600': '380万円〜580万円',
+            '601+': '580万円〜'
+        },
+        details: 'システムキッチンの交換、収納の増設、対面式への変更など、使いやすさとデザイン性を両立したキッチンをご提案します。'
     },
-    {
-        image: 'images/gallery3.jpg',
-        title: 'ヴィンテージリゾート',
-        specs: '築15年・3LDK・78㎡',
-        description: '落ち着いたヴィンテージ感のあるデザイン。家族でゆったり過ごせる広々とした空間。',
-        price: '約3,280万円',
-        budget: ['3000-3999'],
-        layout: ['3']
+    bathroom: {
+        name: '浴室',
+        description: 'ユニットバス交換、在来工法からの変更など',
+        priceRange: {
+            '0-200': '60万円〜150万円',
+            '201-400': '150万円〜350万円',
+            '401-600': '350万円〜500万円',
+            '601+': '500万円〜'
+        },
+        details: 'ユニットバスの交換、浴室暖房乾燥機の設置、バリアフリー対応など、快適なバスタイムを実現します。'
     },
-    {
-        image: 'images/gallery4.jpg',
-        title: 'ブルックリンスタイル',
-        specs: '築20年・2LDK・58㎡',
-        description: 'レンガ調のアクセントがおしゃれなブルックリンスタイル。カフェのような居心地の良さ。',
-        price: '約2,180万円',
-        budget: ['2000-2999'],
-        layout: ['2']
+    toilet: {
+        name: 'トイレ',
+        description: '便器交換、内装リフォームなど',
+        priceRange: {
+            '0-200': '15万円〜80万円',
+            '201-400': '80万円〜150万円',
+            '401-600': '150万円〜250万円',
+            '601+': '250万円〜'
+        },
+        details: '最新のタンクレストイレへの交換、手洗い器の設置、収納の増設など、清潔で快適なトイレ空間をご提案します。'
     },
-    {
-        image: 'images/gallery5.jpg',
-        title: 'ミニマルリュクス',
-        specs: '築25年・1DK・38㎡',
-        description: '贅沢なシンプルさ。上質な素材とミニマルなデザインが融合した、洗練された大人の空間。',
-        price: '約980万円',
-        budget: ['0-999'],
-        layout: ['1']
-    },
-    {
-        image: 'images/gallery6.jpg',
-        title: '和モダン',
-        specs: '築12年・3LDK・85㎡',
-        description: '日本の伝統美と現代的なデザインを融合。落ち着きのある大人のための住まい。',
-        price: '約3,680万円',
-        budget: ['3000-3999'],
-        layout: ['3']
-    },
-    {
-        image: 'images/gallery7.jpg',
-        title: 'スカンジナビアン',
-        specs: '築19年・2DK・52㎡',
-        description: '北欧デザインを取り入れた明るく温かみのある空間。シンプルな暮らしを楽しむ方に。',
-        price: '約1,880万円',
-        budget: ['1000-1999'],
-        layout: ['2']
-    },
-    {
-        image: 'images/gallery8.jpg',
-        title: 'インダストリアル',
-        specs: '築10年・4LDK・95㎡',
-        description: '無骨でかっこいいインダストリアルデザイン。広々とした空間で家族の時間を大切に。',
-        price: '約4,280万円',
-        budget: ['4000+'],
-        layout: ['4+']
-    },
-    {
-        image: 'images/gallery1.jpg',
-        title: 'プレミアムナチュラル',
-        specs: '築8年・3LDK・92㎡',
-        description: '上質な天然素材をふんだんに使用した贅沢なナチュラル空間。大きな窓から光が降り注ぐ開放的なリビング。',
-        price: '約4,580万円',
-        budget: ['4000+'],
-        layout: ['3']
-    },
-    {
-        image: 'images/gallery3.jpg',
-        title: 'ラグジュアリーモダン',
-        specs: '築5年・4LDK・110㎡',
-        description: '高級感あふれるモダンデザイン。広々としたリビングと充実した収納で、快適な暮らしを。',
-        price: '約5,280万円',
-        budget: ['4000+'],
-        layout: ['4+']
+    exterior: {
+        name: '外壁',
+        description: '外壁塗装、サイディング張替えなど',
+        priceRange: {
+            '0-200': '80万円〜180万円',
+            '201-400': '180万円〜380万円',
+            '401-600': '380万円〜580万円',
+            '601+': '580万円〜'
+        },
+        details: '外壁塗装、サイディングの張替え、断熱材の追加など、建物の美観と性能を向上させます。'
     }
-];
+};
 
 let quizAnswers = {
     gender: null,
@@ -920,37 +884,23 @@ function showResults() {
         quizResult.style.display = 'block';
     }
 
-    // 予算と間取りでフィルタリング（両方に一致するものを優先）
-    let matchedProperties = propertyData.filter(prop => {
-        const budgetMatch = prop.budget.includes(quizAnswers.budget);
-        const layoutMatch = prop.layout.includes(quizAnswers.layout);
-        return budgetMatch && layoutMatch;
-    });
+    // 選択されたリフォーム箇所と予算を取得
+    const selectedLocation = quizAnswers.location;
+    const selectedBudget = quizAnswers.budget;
 
-    // 両方一致がなければ、どちらか一致
-    if (matchedProperties.length === 0) {
-        matchedProperties = propertyData.filter(prop => {
-            const budgetMatch = prop.budget.includes(quizAnswers.budget);
-            const layoutMatch = prop.layout.includes(quizAnswers.layout);
-            return budgetMatch || layoutMatch;
-        });
-    }
+    // リフォームデータから該当箇所を取得
+    const reformInfo = reformData[selectedLocation];
 
-    // マッチする物件がない場合はランダムに1件
-    const displayProperty = matchedProperties.length > 0
-        ? matchedProperties[Math.floor(Math.random() * matchedProperties.length)]
-        : propertyData[Math.floor(Math.random() * propertyData.length)];
+    if (reformInfo && quizResultCards) {
+        const priceEstimate = reformInfo.priceRange[selectedBudget] || '要相談';
 
-    // 結果カードを生成（1件のみ）
-    if (quizResultCards) {
         quizResultCards.innerHTML = `
             <div class="quiz-result-card">
-                <img src="${displayProperty.image}" alt="${displayProperty.title}">
                 <div class="quiz-result-card-content">
-                    <h4 class="quiz-result-card-title">${displayProperty.title}</h4>
-                    <p class="quiz-result-card-specs">${displayProperty.specs}</p>
-                    <p class="quiz-result-card-desc">${displayProperty.description}</p>
-                    <p class="quiz-result-card-price">物件費用：${displayProperty.price}</p>
+                    <h4 class="quiz-result-card-title">${reformInfo.name}リフォーム</h4>
+                    <p class="quiz-result-card-specs">${reformInfo.description}</p>
+                    <p class="quiz-result-card-desc">${reformInfo.details}</p>
+                    <p class="quiz-result-card-price">費用目安：${priceEstimate}</p>
                 </div>
             </div>
         `;
