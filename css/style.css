@@ -63,9 +63,11 @@ body {
 .voice-text,
 .faq-answer p,
 .reason-description p,
-.case-study-voice {
+.case-study-voice,
+.onestop-title,
+.section-title {
     word-break: keep-all;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
     white-space: pre-line;
 }
 
@@ -139,6 +141,8 @@ a:hover {
         -2px -2px 0 rgba(255, 255, 255, 0.8),
         2px -2px 0 rgba(255, 255, 255, 0.8),
         -2px 2px 0 rgba(255, 255, 255, 0.8);
+    word-break: keep-all;
+    overflow-wrap: normal;
 }
 
 .section-title::after {
@@ -234,6 +238,8 @@ a:hover {
     margin-bottom: 2rem;
     line-height: 1.8;
     color: var(--color-dark);
+    word-break: keep-all;
+    overflow-wrap: normal;
 }
 
 .cta-badge {
@@ -1095,6 +1101,8 @@ a:hover {
     color: #fff;
     line-height: 1.8;
     margin-bottom: 3rem;
+    word-break: keep-all;
+    overflow-wrap: normal;
 }
 
 .onestop-highlight {
