@@ -71,37 +71,18 @@ body {
     white-space: pre-line;
 }
 
-/* スマホでもPC版と同じ表示を強制 */
+/* スマホ用 - すべてのテキストが折り返されるように */
 @media (max-width: 768px) {
-    /* テキストをビューポート幅に合わせてスケール */
+    /* すべてのテキスト要素で折り返しを許可 */
     .section-title,
+    .section-lead,
     .hero-title,
-    .emotional-title {
-        font-size: clamp(1.25rem, 5vw, 2rem);
-    }
-
-    .section-lead,
     .hero-subtitle,
+    .hero-description,
+    .emotional-title,
     .message-text,
     .message-subtext,
-    .contact-lead,
-    .materials-lead {
-        font-size: clamp(0.875rem, 3.5vw, 1.125rem);
-    }
-
-    .benefit-description,
-    .renove-feature-description,
-    .voice-text,
-    .pain-point-content p,
-    .reason-description p {
-        font-size: clamp(0.8rem, 3vw, 1rem);
-    }
-
-    /* モバイルではテキストが折り返されるように */
-    .section-lead,
-    .hero-subtitle,
-    .message-text,
-    .message-subtext,
+    .benefit-title,
     .benefit-description,
     .cta-box-text,
     .contact-lead,
@@ -114,10 +95,79 @@ body {
     .reason-description p,
     .case-study-voice,
     .case-study-spec,
-    .case-study-cost {
-        word-break: break-all;
-        overflow-wrap: break-word;
-        white-space: normal;
+    .case-study-cost,
+    .onestop-title {
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    /* フォントサイズ調整 */
+    .section-title,
+    .hero-title,
+    .emotional-title {
+        font-size: clamp(1.1rem, 4.5vw, 1.75rem);
+    }
+
+    .cta-box-text {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+    }
+
+    .section-lead,
+    .hero-subtitle,
+    .message-text,
+    .message-subtext,
+    .contact-lead,
+    .materials-lead {
+        font-size: clamp(0.8rem, 3.5vw, 1rem);
+    }
+
+    .benefit-title {
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    }
+
+    .benefit-description,
+    .renove-feature-description,
+    .voice-text,
+    .pain-point-content p,
+    .reason-description p {
+        font-size: clamp(0.75rem, 3vw, 0.9rem);
+    }
+}
+
+/* iPhone 12 mini等の小さい画面用 */
+@media (max-width: 390px) {
+    .section-title,
+    .hero-title,
+    .emotional-title {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .cta-box-text {
+        font-size: 0.95rem;
+    }
+
+    .cta-box {
+        padding: 1.5rem 1rem;
+    }
+
+    .benefit-title {
+        font-size: 0.85rem;
+    }
+
+    .benefit-description,
+    .renove-feature-description {
+        font-size: 0.75rem;
+    }
+
+    .onestop-title {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+    }
+
+    .onestop-highlight {
+        font-size: 1rem;
     }
 }
 
