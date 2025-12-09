@@ -550,8 +550,8 @@ a:hover {
     margin-bottom: 3rem;
     font-weight: 500;
     line-height: 2.2;
-    color: var(--color-white);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    color: #C8E6C9;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
     letter-spacing: 0.12em;
     font-family: var(--font-sans);
     animation: fadeUpIn 1s ease both 0.6s;
