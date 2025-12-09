@@ -941,3 +941,56 @@ if (ctaAfterLifestyle && quizModal) {
 
     ctaObserver.observe(ctaAfterLifestyle);
 }
+
+// ==============================================
+// プライバシーポリシーモーダル
+// ==============================================
+const privacyModal = document.getElementById('privacyModal');
+const openPrivacyBtn = document.getElementById('openPrivacyBtn');
+const privacyClose = document.getElementById('privacyClose');
+const privacyOverlay = document.getElementById('privacyOverlay');
+const privacyAgreeBtn = document.getElementById('privacyAgreeBtn');
+const privacyCheckbox = document.querySelector('input[name="privacy"]');
+
+// モーダルを開く
+if (openPrivacyBtn && privacyModal) {
+    openPrivacyBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        privacyModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// モーダルを閉じる
+function closePrivacyModal() {
+    privacyModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+if (privacyClose) {
+    privacyClose.addEventListener('click', closePrivacyModal);
+}
+
+if (privacyOverlay) {
+    privacyOverlay.addEventListener('click', closePrivacyModal);
+}
+
+// 同意して閉じるボタン
+if (privacyAgreeBtn) {
+    privacyAgreeBtn.addEventListener('click', () => {
+        // チェックボックスにチェックを入れる
+        if (privacyCheckbox) {
+            privacyCheckbox.checked = true;
+        }
+        closePrivacyModal();
+    });
+}
+
+// ESCキーでモーダルを閉じる
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (privacyModal && privacyModal.classList.contains('active')) {
+            closePrivacyModal();
+        }
+    }
+});

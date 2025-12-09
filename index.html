@@ -876,7 +876,7 @@
                 <div class="form-privacy">
                     <label>
                         <input type="checkbox" name="privacy" required>
-                        <a href="#" target="_blank">プライバシーポリシー</a>に同意する
+                        <a href="#" id="openPrivacyBtn">プライバシーポリシー</a>に同意する
                     </label>
                 </div>
 
@@ -1010,6 +1010,89 @@
                 </div>
                 <a href="#contact" class="quiz-contact-btn" id="quizContactBtn">詳しい見積もりを相談する</a>
             </div>
+        </div>
+    </div>
+
+    <!-- プライバシーポリシーモーダル -->
+    <div class="privacy-modal" id="privacyModal">
+        <div class="privacy-modal-overlay" id="privacyOverlay"></div>
+        <div class="privacy-modal-content">
+            <button type="button" class="privacy-close" id="privacyClose">&times;</button>
+            <h2 class="privacy-title">プライバシーポリシー</h2>
+            <div class="privacy-body">
+                <p class="privacy-intro">株式会社アルフレンテ（以下「当社」）は、お客様の個人情報の保護を重要な責務と考え、以下のとおりプライバシーポリシーを定め、適切な取り扱いに努めます。</p>
+
+                <section class="privacy-section">
+                    <h3>1. 個人情報の定義</h3>
+                    <p>個人情報とは、氏名、住所、電話番号、メールアドレスなど、特定の個人を識別できる情報をいいます。</p>
+                </section>
+
+                <section class="privacy-section">
+                    <h3>2. 個人情報の収集</h3>
+                    <p>当社は、以下の目的で個人情報を収集することがあります。</p>
+                    <ul>
+                        <li>無料相談・資料請求へのご対応</li>
+                        <li>リノベーション・不動産サービスに関するご案内</li>
+                        <li>お問い合わせへのご回答</li>
+                        <li>イベント・セミナーのご案内</li>
+                        <li>サービス向上のためのアンケート調査</li>
+                    </ul>
+                </section>
+
+                <section class="privacy-section">
+                    <h3>3. 個人情報の利用目的</h3>
+                    <p>収集した個人情報は、以下の目的にのみ利用いたします。</p>
+                    <ul>
+                        <li>お客様へのサービス提供およびご連絡</li>
+                        <li>リノベーション・不動産に関する情報のご提供</li>
+                        <li>契約の履行および管理</li>
+                        <li>当社サービスの改善・開発</li>
+                    </ul>
+                </section>
+
+                <section class="privacy-section">
+                    <h3>4. 個人情報の第三者提供</h3>
+                    <p>当社は、以下の場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。</p>
+                    <ul>
+                        <li>法令に基づく場合</li>
+                        <li>人の生命、身体または財産の保護のために必要な場合</li>
+                        <li>公衆衛生の向上または児童の健全な育成の推進のために必要な場合</li>
+                    </ul>
+                </section>
+
+                <section class="privacy-section">
+                    <h3>5. 個人情報の安全管理</h3>
+                    <p>当社は、個人情報の漏洩、滅失、毀損を防止するため、適切な安全管理措置を講じます。また、従業員に対して個人情報保護に関する教育を実施します。</p>
+                </section>
+
+                <section class="privacy-section">
+                    <h3>6. 個人情報の開示・訂正・削除</h3>
+                    <p>お客様ご本人から個人情報の開示、訂正、削除のご請求があった場合、ご本人確認の上、合理的な範囲で対応いたします。</p>
+                </section>
+
+                <section class="privacy-section">
+                    <h3>7. Cookieの使用について</h3>
+                    <p>当サイトでは、サービス向上のためCookieを使用することがあります。Cookieはブラウザの設定により無効化することが可能です。</p>
+                </section>
+
+                <section class="privacy-section">
+                    <h3>8. プライバシーポリシーの改定</h3>
+                    <p>当社は、必要に応じて本ポリシーを改定することがあります。改定後のポリシーは、当サイトに掲載した時点から効力を生じます。</p>
+                </section>
+
+                <section class="privacy-section">
+                    <h3>9. お問い合わせ窓口</h3>
+                    <p>個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。</p>
+                    <div class="privacy-contact">
+                        <p><strong>株式会社アルフレンテ</strong></p>
+                        <p>〒538-0031 大阪府大阪市鶴見区浜2-5-5 1階</p>
+                        <p>Email: information@alfrente.jp</p>
+                    </div>
+                </section>
+
+                <p class="privacy-date">制定日：2025年1月1日</p>
+            </div>
+            <button type="button" class="privacy-agree-btn" id="privacyAgreeBtn">同意して閉じる</button>
         </div>
     </div>
 
