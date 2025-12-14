@@ -170,6 +170,63 @@ body {
     .onestop-highlight {
         font-size: 1rem;
     }
+
+    /* pain-point テキスト調整 */
+    .pain-point-content p {
+        font-size: 0.8rem;
+        white-space: normal;
+        word-break: keep-all;
+    }
+
+    /* チェックボックス調整 */
+    .checkbox-label input[type="checkbox"] {
+        width: 12px !important;
+        height: 12px !important;
+    }
+
+    .checkbox-label span {
+        font-size: 0.65rem;
+    }
+
+    .checkbox-group {
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* FAQ回答テキスト調整 */
+    .faq-answer p {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+        font-size: 0.8rem;
+    }
+
+    /* 感情セクション調整 */
+    .emotional-content p {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    .emotional-emphasis {
+        word-break: keep-all;
+    }
+
+    /* リノベ不動産特徴テキスト調整 */
+    .renove-feature-description {
+        word-break: keep-all;
+        font-size: 0.7rem;
+    }
+
+    /* プライバシーチェックボックス大きく */
+    .form-privacy input[type="checkbox"] {
+        width: 20px !important;
+        height: 20px !important;
+        min-width: 20px;
+        min-height: 20px;
+    }
+
+    .form-privacy label {
+        font-size: 0.9rem;
+        gap: 0.75rem;
+    }
 }
 
 img {
@@ -196,6 +253,10 @@ a:hover {
 
 .sp-only {
     display: none;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 /* ==============================================
