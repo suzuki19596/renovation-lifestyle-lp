@@ -145,7 +145,8 @@ body {
     }
 
     .cta-box-text {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
+        word-break: keep-all;
     }
 
     .cta-box {
@@ -313,6 +314,11 @@ a:hover {
     color: var(--color-dark);
     word-break: keep-all;
     overflow-wrap: normal;
+}
+
+.cta-line {
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .cta-badge {
@@ -561,8 +567,8 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: 120%;
-    background-position: center top;
+    background-size: cover;
+    background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     margin-top: 0;
@@ -629,7 +635,7 @@ a:hover {
     margin-bottom: 3rem;
     font-weight: 500;
     line-height: 2.2;
-    color: #C8E6C9;
+    color: #FFFFFF;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
     letter-spacing: 0.12em;
     font-family: var(--font-sans);
@@ -911,8 +917,7 @@ a:hover {
 
 .benefit-image img {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
+    height: auto;
     transition: transform 0.5s ease;
 }
 
@@ -977,8 +982,8 @@ a:hover {
 .before-image img,
 .after-image img {
     width: 100%;
-    height: 380px;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center center;
     transition: transform 0.6s ease;
 }
@@ -1726,6 +1731,53 @@ a:hover {
     resize: vertical;
 }
 
+.form-group label .note {
+    font-size: 0.8rem;
+    color: #666;
+    margin-left: 0.5rem;
+    font-weight: normal;
+}
+
+.checkbox-group {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-label {
+    display: block !important;
+    padding: 0.3rem 0;
+    cursor: pointer;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+.checkbox-label:last-child {
+    border-bottom: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 14px !important;
+    height: 14px !important;
+    accent-color: var(--color-green);
+    cursor: pointer;
+    margin: 0 6px 0 0 !important;
+    vertical-align: middle !important;
+    display: inline !important;
+    -webkit-appearance: checkbox !important;
+    appearance: checkbox !important;
+}
+
+.checkbox-label span {
+    font-size: 0.75rem;
+    color: var(--color-dark);
+    line-height: 1.4;
+    vertical-align: middle !important;
+    display: inline !important;
+    white-space: nowrap;
+}
+
 .form-privacy {
     margin-bottom: 2rem;
 }
@@ -1932,49 +1984,58 @@ a:hover {
 
     /* ヒーローセクション */
     .hero {
-        min-height: auto;
-        height: auto;
+        min-height: calc(100vh - 70px);
+        min-height: calc(100dvh - 70px);
+        height: calc(100vh - 70px);
+        height: calc(100dvh - 70px);
         background-attachment: scroll;
-        background-size: 150% auto;
-        background-position: center top;
-        align-items: flex-start;
-        padding-top: 55px;
-        padding-bottom: 0;
+        background-size: cover;
+        background-position: center center;
+        align-items: center;
+        padding-top: 70px;
+        padding-bottom: 80px;
     }
 
     .hero-content {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        max-height: calc(100vh - 150px);
     }
 
     .hero-title {
-        font-size: 1.2rem;
-        line-height: 1.4;
+        font-size: 1.3rem;
+        line-height: 1.5;
         letter-spacing: 0.05em;
-        margin-bottom: 0.3rem;
-        padding-bottom: 0.3rem;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        white-space: nowrap;
     }
 
     .hero-subtitle {
-        font-size: 0.65rem;
-        line-height: 1.4;
-        letter-spacing: 0.03em;
-        margin-top: 0.3rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        letter-spacing: 0.05em;
+        margin-top: 1rem;
     }
 
     .hero-description {
-        font-size: 0.6rem;
-        line-height: 1.4;
-        padding: 0.15rem 0;
-        margin-top: 0.3rem;
-        margin-bottom: 0.3rem;
-        letter-spacing: 0.03em;
+        font-size: 0.85rem;
+        line-height: 1.8;
+        padding: 1rem 0;
+        margin-top: 0;
+        margin-bottom: auto;
+        letter-spacing: 0.05em;
     }
 
     .hero-cta {
-        font-size: 0.65rem;
-        padding: 0.5rem 0.8rem;
-        max-width: 180px;
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        max-width: 280px;
         margin: 0 auto;
     }
 
@@ -2027,7 +2088,7 @@ a:hover {
     }
 
     .benefit-image img {
-        height: 300px;
+        height: auto;
     }
 
     .benefit-title {
@@ -2036,8 +2097,9 @@ a:hover {
     }
 
     .benefit-description {
-        font-size: 0.95rem;
+        font-size: 0.8rem;
         line-height: 1.9;
+        word-break: keep-all;
     }
 
     /* 事例セクション */
@@ -2047,7 +2109,7 @@ a:hover {
 
     .before-image img,
     .after-image img {
-        height: 280px;
+        height: auto;
     }
 
     .case-study-content {
@@ -2055,7 +2117,8 @@ a:hover {
     }
 
     .case-study-title {
-        font-size: 1.25rem;
+        font-size: 1rem;
+        white-space: nowrap;
     }
 
     .case-study-spec {
@@ -2079,9 +2142,13 @@ a:hover {
         font-size: 0.9rem;
         line-height: 1.8;
         padding-left: 1rem;
-        word-break: break-all;
+        word-break: normal;
         overflow-wrap: break-word;
         white-space: normal;
+    }
+
+    .case-study-voice br {
+        display: none;
     }
 
     /* 選ばれる理由セクション */
@@ -2117,9 +2184,13 @@ a:hover {
     .renove-feature-description {
         font-size: 0.8rem;
         line-height: 1.7;
-        word-break: break-all;
+        word-break: keep-all;
         overflow-wrap: break-word;
         white-space: normal;
+    }
+
+    .renove-feature-description br {
+        display: none;
     }
 
     /* ワンストップセクション モバイル */
@@ -2217,9 +2288,12 @@ a:hover {
     }
 
     .emotional-title {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         line-height: 1.7;
         margin-bottom: 2.5rem;
+        white-space: nowrap;
+        font-weight: 700;
+        letter-spacing: 0.05em;
     }
 
     .emotional-content {
@@ -2345,9 +2419,10 @@ a:hover {
     }
 
     .cta-box-text {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         font-weight: 600;
         line-height: 1.7;
+        word-break: keep-all;
     }
 
     .cta-button {
@@ -2394,8 +2469,9 @@ a:hover {
     }
 
     .pain-point-content p {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
         line-height: 1.8;
+        white-space: nowrap;
     }
 
     .empathy-message {

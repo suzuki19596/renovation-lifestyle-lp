@@ -7,7 +7,7 @@ const ABTestSystem = {
     variants: {
         ctaButton: {
             control: {
-                text: '無料相談で「私らしい暮らし」を見つける',
+                text: '理想の住まいを無料で相談',
                 color: '#E67E22'
             },
             variantA: {
@@ -25,7 +25,7 @@ const ABTestSystem = {
             variantB: '「毎日が特別になる、私だけの部屋。」'
         },
         ctaBadge: {
-            control: '＼ 簡単30秒 ／',
+            control: '＼ 今だけ特典付き／',
             variantA: '＼ 今だけ特典付き ／',
             variantB: '＼ 女性プランナーが対応 ／'
         }
