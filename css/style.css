@@ -135,19 +135,12 @@ body {
     }
 }
 
-/* iPhone 12 mini等の小さい画面用 */
+/* 小さいスマホ（390px以下）用微調整 */
 @media (max-width: 390px) {
     .section-title,
     .emotional-title {
         font-size: 1rem;
         padding: 0 0.5rem;
-    }
-
-    .hero-title {
-        font-size: 1.15rem !important;
-        padding: 0 0.25rem !important;
-        white-space: nowrap !important;
-        letter-spacing: -0.02em !important;
     }
 
     .cta-box-text {
@@ -186,35 +179,9 @@ body {
         word-break: keep-all;
     }
 
-    /* チェックボックス調整 - 押しやすく1行維持 */
-    .checkbox-group .checkbox-label {
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.4rem !important;
-        padding: 0.35rem 0 !important;
-        min-height: 32px !important;
-    }
-
-    .checkbox-group .checkbox-label input[type="checkbox"] {
-        width: 16px !important;
-        height: 16px !important;
-        min-width: 16px !important;
-        max-width: 16px !important;
-        margin: 0 !important;
-        transform: none !important;
-        flex-shrink: 0 !important;
-        -webkit-appearance: checkbox !important;
-        appearance: checkbox !important;
-    }
-
+    /* チェックボックス - 小さい画面用テキストサイズ */
     .checkbox-group .checkbox-label span {
         font-size: 0.7rem !important;
-        line-height: 1.2 !important;
-        white-space: nowrap !important;
-    }
-
-    .checkbox-group {
-        padding: 0.4rem 0.5rem !important;
     }
 
     /* FAQ回答テキスト調整 */
@@ -240,12 +207,10 @@ body {
         font-size: 0.7rem;
     }
 
-    /* プライバシーチェックボックス大きく */
+    /* プライバシーチェックボックス */
     .form-privacy input[type="checkbox"] {
         width: 20px !important;
         height: 20px !important;
-        min-width: 20px;
-        min-height: 20px;
     }
 
     .form-privacy label {
@@ -2607,6 +2572,46 @@ a:hover {
         font-size: 0.8rem;
     }
 
+    /* ==============================================
+       全スマホ共通 - チェックボックス統一スタイル
+    ============================================== */
+    .checkbox-group .checkbox-label {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
+        padding: 0.35rem 0 !important;
+        min-height: 32px !important;
+    }
+
+    .checkbox-group .checkbox-label input[type="checkbox"] {
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+        max-width: 16px !important;
+        margin: 0 !important;
+        transform: none !important;
+        flex-shrink: 0 !important;
+        -webkit-appearance: checkbox !important;
+        appearance: checkbox !important;
+    }
+
+    .checkbox-group .checkbox-label span {
+        font-size: 0.75rem !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+    }
+
+    .checkbox-group {
+        padding: 0.4rem 0.5rem !important;
+    }
+
+    /* ヒーロータイトル - 全スマホ共通 */
+    .hero-title {
+        font-size: clamp(1.1rem, 5vw, 1.6rem) !important;
+        white-space: nowrap !important;
+        letter-spacing: -0.01em !important;
+    }
+
 }
 
 /* ==============================================
@@ -3156,54 +3161,11 @@ a:hover {
 }
 
 /* ==============================================
-   iPhone 12 mini 最終上書き（ファイル末尾）
+   小さいスマホ（375px以下）微調整
 ============================================== */
 @media (max-width: 390px) {
-    /* ヒーロータイトル - 1行表示 */
-    .hero-title {
-        font-size: 1.15rem !important;
-        padding: 0 0.25rem !important;
-        white-space: nowrap !important;
-        letter-spacing: -0.02em !important;
-        word-break: keep-all !important;
-        overflow: visible !important;
-    }
-
-    /* チェックボックス - 押しやすいサイズ、1行維持 */
-    .checkbox-group .checkbox-label {
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.4rem !important;
-        padding: 0.35rem 0 !important;
-        margin: 0 !important;
-        min-height: 32px !important;
-    }
-
-    .checkbox-group .checkbox-label input[type="checkbox"] {
-        width: 16px !important;
-        height: 16px !important;
-        min-width: 16px !important;
-        max-width: 16px !important;
-        min-height: 16px !important;
-        max-height: 16px !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        transform: none !important;
-        flex-shrink: 0 !important;
-        -webkit-appearance: checkbox !important;
-        appearance: checkbox !important;
-    }
-
+    /* 小さい画面でのフォントサイズ微調整 */
     .checkbox-group .checkbox-label span {
         font-size: 0.7rem !important;
-        line-height: 1.2 !important;
-        white-space: nowrap !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .checkbox-group {
-        padding: 0.4rem 0.5rem !important;
-        gap: 0 !important;
     }
 }
