@@ -138,9 +138,13 @@ body {
 /* iPhone 12 mini等の小さい画面用 */
 @media (max-width: 390px) {
     .section-title,
-    .hero-title,
     .emotional-title {
         font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .hero-title {
+        font-size: 1.4rem;
         padding: 0 0.5rem;
     }
 
@@ -169,6 +173,8 @@ body {
 
     .onestop-highlight {
         font-size: 1rem;
+        white-space: nowrap !important;
+        display: inline-block;
     }
 
     /* pain-point テキスト調整 */
@@ -178,19 +184,19 @@ body {
         word-break: keep-all;
     }
 
-    /* チェックボックス調整 - プライバシーと同じ20px */
+    /* チェックボックス調整 - 小さめに */
     .checkbox-label input[type="checkbox"] {
-        width: 20px !important;
-        height: 20px !important;
-        min-width: 20px;
-        min-height: 20px;
+        width: 14px !important;
+        height: 14px !important;
+        min-width: 14px;
+        min-height: 14px;
         flex-shrink: 0;
     }
 
     .checkbox-label {
         display: flex !important;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 0.4rem;
         white-space: normal !important;
     }
 
@@ -2090,7 +2096,7 @@ a:hover {
     }
 
     .hero-title {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
         line-height: 1.5;
         letter-spacing: 0.05em;
         margin-top: 3rem;
