@@ -144,10 +144,10 @@ body {
     }
 
     .hero-title {
-        font-size: 1rem !important;
+        font-size: 1.15rem !important;
         padding: 0 0.25rem !important;
         white-space: nowrap !important;
-        letter-spacing: 0 !important;
+        letter-spacing: -0.02em !important;
     }
 
     .cta-box-text {
@@ -186,19 +186,20 @@ body {
         word-break: keep-all;
     }
 
-    /* チェックボックス調整 - より小さく */
+    /* チェックボックス調整 - 押しやすく1行維持 */
     .checkbox-group .checkbox-label {
         display: flex !important;
         align-items: center !important;
-        gap: 0.25rem !important;
-        padding: 0.15rem 0 !important;
+        gap: 0.4rem !important;
+        padding: 0.35rem 0 !important;
+        min-height: 32px !important;
     }
 
     .checkbox-group .checkbox-label input[type="checkbox"] {
-        width: 10px !important;
-        height: 10px !important;
-        min-width: 10px !important;
-        max-width: 10px !important;
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+        max-width: 16px !important;
         margin: 0 !important;
         transform: none !important;
         flex-shrink: 0 !important;
@@ -207,13 +208,13 @@ body {
     }
 
     .checkbox-group .checkbox-label span {
-        font-size: 0.65rem !important;
+        font-size: 0.7rem !important;
         line-height: 1.2 !important;
         white-space: nowrap !important;
     }
 
     .checkbox-group {
-        padding: 0.25rem 0.5rem !important;
+        padding: 0.4rem 0.5rem !important;
     }
 
     /* FAQ回答テキスト調整 */
@@ -3160,7 +3161,7 @@ a:hover {
 @media (max-width: 390px) {
     /* ヒーロータイトル - 1行表示 */
     .hero-title {
-        font-size: 0.95rem !important;
+        font-size: 1.15rem !important;
         padding: 0 0.25rem !important;
         white-space: nowrap !important;
         letter-spacing: -0.02em !important;
@@ -3168,22 +3169,23 @@ a:hover {
         overflow: visible !important;
     }
 
-    /* チェックボックス - 小さくクリーンに */
+    /* チェックボックス - 押しやすいサイズ、1行維持 */
     .checkbox-group .checkbox-label {
         display: flex !important;
         align-items: center !important;
-        gap: 0.25rem !important;
-        padding: 0.15rem 0 !important;
+        gap: 0.4rem !important;
+        padding: 0.35rem 0 !important;
         margin: 0 !important;
+        min-height: 32px !important;
     }
 
     .checkbox-group .checkbox-label input[type="checkbox"] {
-        width: 10px !important;
-        height: 10px !important;
-        min-width: 10px !important;
-        max-width: 10px !important;
-        min-height: 10px !important;
-        max-height: 10px !important;
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+        max-width: 16px !important;
+        min-height: 16px !important;
+        max-height: 16px !important;
         margin: 0 !important;
         padding: 0 !important;
         transform: none !important;
@@ -3193,7 +3195,7 @@ a:hover {
     }
 
     .checkbox-group .checkbox-label span {
-        font-size: 0.65rem !important;
+        font-size: 0.7rem !important;
         line-height: 1.2 !important;
         white-space: nowrap !important;
         margin: 0 !important;
@@ -3201,7 +3203,7 @@ a:hover {
     }
 
     .checkbox-group {
-        padding: 0.25rem 0.5rem !important;
+        padding: 0.4rem 0.5rem !important;
         gap: 0 !important;
     }
 }
