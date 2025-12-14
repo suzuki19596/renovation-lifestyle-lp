@@ -144,8 +144,9 @@ body {
     }
 
     .hero-title {
-        font-size: 1.4rem;
+        font-size: 1.15rem;
         padding: 0 0.5rem;
+        white-space: nowrap;
     }
 
     .cta-box-text {
@@ -185,22 +186,25 @@ body {
     }
 
     /* チェックボックス調整 - 小さめに */
-    .checkbox-label input[type="checkbox"] {
-        width: 14px !important;
-        height: 14px !important;
-        min-width: 14px;
-        min-height: 14px;
+    .checkbox-group .checkbox-label input[type="checkbox"] {
+        width: 13px !important;
+        height: 13px !important;
+        min-width: 13px !important;
+        max-width: 13px !important;
+        min-height: 13px !important;
+        max-height: 13px !important;
         flex-shrink: 0;
+        transform: scale(1) !important;
     }
 
-    .checkbox-label {
+    .checkbox-group .checkbox-label {
         display: flex !important;
         align-items: flex-start;
         gap: 0.4rem;
         white-space: normal !important;
     }
 
-    .checkbox-label span {
+    .checkbox-group .checkbox-label span {
         font-size: 0.65rem;
         white-space: normal !important;
         word-break: break-all;
@@ -1843,8 +1847,10 @@ a:hover {
 }
 
 .checkbox-label input[type="checkbox"] {
-    width: 14px !important;
-    height: 14px !important;
+    width: 13px !important;
+    height: 13px !important;
+    max-width: 13px !important;
+    max-height: 13px !important;
     accent-color: var(--color-green);
     cursor: pointer;
     margin: 0 6px 0 0 !important;
