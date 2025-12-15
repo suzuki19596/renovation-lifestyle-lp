@@ -459,13 +459,26 @@ if (contactForm) {
         const formData = new FormData(this);
         const data = Object.fromEntries(formData);
 
-        // 実際の送信処理はここに実装
-        // 例: fetch APIでサーバーに送信
+        // チェックボックスの値を取得（複数選択対応）
+        const interests = formData.getAll('interests').join('、');
 
-        console.log('フォームデータ:', data);
+        // メール本文を作成
+        const subject = `【お問い合わせ】${data['inquiry-type']}`;
+        const body = `
+お問い合わせ項目：${data['inquiry-type']}
+お名前：${data['name']}
+フリガナ：${data['furigana']}
+電話番号：${data['phone']}
+メールアドレス：${data['email']}
+住所：${data['address']}
+やってみたい事・考えている事：${interests}
+お問い合わせ内容：
+${data['message'] || 'なし'}
+        `.trim();
 
-        // デモ用のアラート
-        alert('お問い合わせありがとうございます！\n担当者より3営業日以内にご連絡させていただきます。');
+        // mailto:リンクでメールを開く
+        const mailtoLink = `mailto:suzuki199534st@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
 
         // フォームのリセット
         this.reset();
